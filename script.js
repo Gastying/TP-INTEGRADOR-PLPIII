@@ -202,36 +202,49 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // Hero slider
-  const heroImages = ['banner1.jpg', 'banner2.jpg'];
+  // Hero slider funcional con animación suave
+  const heroImages = ['banner1.jpg', 'banner2.jpg', 'banner3.jpg'];
   let heroIndex = 0;
   const heroImg = document.getElementById('hero-img');
   const prevBtn = document.getElementById('hero-prev');
   const nextBtn = document.getElementById('hero-next');
 
-  if (heroImg && prevBtn && nextBtn) {
-    function showHeroImage(idx) {
-      heroImg.classList.add('fade-out');
+  if (heroImg) heroImg.src = heroImages[heroIndex];
+
+  function animateHeroChange(newIdx) {
+    if (!heroImg) return;
+    heroImg.classList.add('fade-hero-out');
+    setTimeout(() => {
+      heroImg.src = heroImages[newIdx];
+      heroImg.classList.remove('fade-hero-out');
+      heroImg.classList.add('fade-hero-in');
       setTimeout(() => {
-        heroImg.src = heroImages[idx];
-        heroImg.classList.remove('fade-out');
-        heroImg.classList.add('fade-in');
-        setTimeout(() => {
-          heroImg.classList.remove('fade-in');
-        }, 400);
+        heroImg.classList.remove('fade-hero-in');
       }, 400);
-    }
-
-    prevBtn.addEventListener('click', function() {
-      heroIndex = (heroIndex - 1 + heroImages.length) % heroImages.length;
-      showHeroImage(heroIndex);
-    });
-
-    nextBtn.addEventListener('click', function() {
-      heroIndex = (heroIndex + 1) % heroImages.length;
-      showHeroImage(heroIndex);
-    });
+    }, 400);
   }
+
+  if (heroImg && prevBtn && nextBtn) {
+    prevBtn.onclick = function() {
+      heroIndex = (heroIndex - 1 + heroImages.length) % heroImages.length;
+      animateHeroChange(heroIndex);
+    };
+    nextBtn.onclick = function() {
+      heroIndex = (heroIndex + 1) % heroImages.length;
+      animateHeroChange(heroIndex);
+    };
+  }
+
+  // Vista rápida: redirige al producto correspondiente
+  document.querySelectorAll('.quick-view[data-product]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const id = btn.getAttribute('data-product');
+      if (id) {
+        window.location.href = `producto.html?id=${id}`;
+      }
+    });
+  });
 
   // --- Buscador global (para todas las páginas con .search-input) ---
   const searchInput = document.querySelector('.search-input');
@@ -321,4 +334,95 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ejecutar al cargar para aplicar el filtro inicial (incluye filtro por URL)
     filtrarYOrdenar();
   }
+
+  // --- Newsletter con EmailJS ---
+  document.addEventListener('DOMContentLoaded', function () {
+    // --- Banner Slider ---
+    const heroSlides = [
+      { src: 'banner1.jpg', alt: 'Fragancias Premium' },
+      { src: 'banner2.jpg', alt: 'Nuevas Fragancias' },
+      { src: 'banner3.jpg', alt: 'Colección Exclusiva' }
+    ];
+    let heroIndex = 0;
+    const heroImg = document.querySelector('.hero-background #hero-img');
+    const prevBtn = document.getElementById('hero-prev');
+    const nextBtn = document.getElementById('hero-next');
+
+    function showHero(idx) {
+      if (!heroImg) return;
+      heroImg.src = heroSlides[idx].src;
+      heroImg.alt = heroSlides[idx].alt;
+    }
+
+    if (prevBtn && nextBtn && heroImg) {
+      prevBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        heroIndex = (heroIndex - 1 + heroSlides.length) % heroSlides.length;
+        showHero(heroIndex);
+      });
+      nextBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        showHero(heroIndex);
+      });
+    }
+
+    showHero(heroIndex);
+
+    // --- Newsletter con EmailJS ---
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+
+        // EmailJS config (asegúrate de poner tu template y public key correctos)
+        const serviceID = 'service_g7hr00s';
+        const templateID = 'tu_template_id'; // Reemplaza por tu template real
+        const publicKey = 'tu_public_key';   // Reemplaza por tu public key real
+
+        // El nombre de la variable debe coincidir con el nombre del campo en tu plantilla de EmailJS
+        const templateParams = {
+          user_email: email, // o el nombre exacto que pusiste en tu template
+          message: '¡Gracias por suscribirte! Esto es una prueba de newsletter desde Essence Shop.'
+        };
+
+        const btn = newsletterForm.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+        function sendEmail() {
+          window.emailjs.init(publicKey);
+          window.emailjs.send(serviceID, templateID, templateParams)
+            .then(function () {
+              btn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+              btn.disabled = true;
+              emailInput.value = '';
+              setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-envelope"></i> Suscribirme';
+                btn.disabled = false;
+              }, 2500);
+            }, function (err) {
+              btn.innerHTML = '<i class="fas fa-times"></i> Error';
+              btn.disabled = false;
+              alert('No se pudo enviar el correo. Revisa tu configuración de EmailJS.\n' + (err.text || err));
+              setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-envelope"></i> Suscribirme';
+              }, 2500);
+            });
+        }
+
+        // Cargar EmailJS si no está
+        if (!window.emailjs) {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js';
+          script.onload = sendEmail;
+          document.body.appendChild(script);
+        } else {
+          sendEmail();
+        }
+      });
+    }
+  });
 });
