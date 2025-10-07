@@ -1848,7 +1848,7 @@ main.container {
   }
   .btn-details:hover {
     background: var(--primary);
-    color: #fff;
+    color: var(--color-secondary);
   }
 @media (max-width: 768px) {
   /* FEATURES SECTION */
@@ -2418,8 +2418,8 @@ main.container {
 }
 
 .product-badge.new {
-  background: var(--color-muted);
-  color: var(--color-primary);
+  background: #6c5436;
+  color: var(--color-muted);
 }
 
 .product-image {
@@ -2521,7 +2521,7 @@ main.container {
 .btn-cart, .btn-details {
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight:   600;
+  font-weight:    600;
   padding: 0.7em 1.5em;
   border: none;
   border-radius: 2rem;
@@ -2708,81 +2708,45 @@ main.container {
   box-shadow: 0 4px 16px var(--color-shadow-strong);
 }
 
-/* Responsividad avanzada */
-@media (max-width: 900px) {
-  .header-inner, .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-  }
-  .nav {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 1rem;
-  }
-  .stats-grid {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.7rem;
-  }
+/* Preloader solo logo mucho más grande y solo para carga inicial */
+#preloader {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.6); /* 60% opacidad */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s;
+}
+#preloader .preloader-content {
+  text-align: center;
+  animation: fadeInPreloader 1.2s;
+}
+.preloader-logo-only {
+  width: 220px;
+  height: 220px;
+  animation: logoBounce 1.2s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
-@media (max-width: 700px) {
-  .container {
-    padding: 0 0.7rem;
-  }
-  .hero-background {
-    height: 260px;
-  }
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-  .product-card {
-    min-height: 340px;
-  }
-  .section-title {
-    font-size: 1.5rem;
-  }
-  .site-header {
-    padding: 0.5rem 0;
-  }
-  .footer-section {
-    min-width: 0;
-  }
+@keyframes fadeInPreloader {
+  from { opacity: 0; transform: scale(0.95);}
+  to   { opacity: 1; transform: scale(1);}
+}
+@keyframes logoBounce {
+  0%   { opacity: 0; transform: scale(0.7);}
+  60%  { opacity: 1; transform: scale(1.15);}
+  80%  { opacity: 1; transform: scale(0.95);}
+  100% { opacity: 1; transform: scale(1);}
 }
 
-@media (max-width: 480px) {
-  .hero-content {
-    bottom: 1.2rem;
-  }
-  .btn-hero-scroll {
-    font-size: 0.98rem;
-    padding: 0.7rem 1.3rem;
-  }
-  .product-content {
-    padding: 0.8rem 0.7rem 0.8rem 0.7rem;
-  }
-  .footer-section {
-    margin-bottom: 1rem;
-  }
+body.preloader-hide #preloader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
 }
 
-/* Microinteracciones */
-input:focus, button:focus, a:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-.hero-arrow {
-  z-index: 10 !important;
-}
-
-/* Animaciones suaves */
+/* Hero slider animación */
 .fade-hero-out {
   opacity: 0;
   transition: opacity 0.4s;

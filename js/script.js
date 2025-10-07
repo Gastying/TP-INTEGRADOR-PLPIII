@@ -202,8 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // Hero slider funcional con animación suave
-  const heroImages = ['banner1.jpg', 'banner2.jpg', 'banner3.jpg'];
+  // Hero slider funcional con animación suave y rutas actualizadas
+  const heroImages = [
+    'assets/banners/banner1.jpg',
+    'assets/banners/banner2.jpg',
+    'assets/banners/banner3.jpg'
+  ];
   let heroIndex = 0;
   const heroImg = document.getElementById('hero-img');
   const prevBtn = document.getElementById('hero-prev');
@@ -425,4 +429,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // Preloader solo en la PRIMERA visita (no al navegar a inicio)
+  (function() {
+    const preloader = document.getElementById('preloader');
+    // Usamos sessionStorage para mostrar el preloader solo una vez por sesión
+    const alreadyShown = sessionStorage.getItem('preloader_shown');
+    if (!alreadyShown) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('preloader-hide');
+          setTimeout(() => {
+            if (preloader) preloader.style.display = 'none';
+          }, 700);
+        }, 700);
+        sessionStorage.setItem('preloader_shown', '1');
+      });
+    } else {
+      // Oculta el preloader inmediatamente si ya se mostró en esta sesión
+      if (preloader) preloader.style.display = 'none';
+      document.body.classList.add('preloader-hide');
+    }
+  })();
 });

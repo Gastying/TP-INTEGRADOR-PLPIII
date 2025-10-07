@@ -16,10 +16,17 @@
   <!-- Iconos -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/script.js" defer></script>
 </head>
 <body>
+  <!-- Preloader animado solo logo grande -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="assets/img/logo.png" alt="Essence Shop" class="preloader-logo-only">
+    </div>
+  </div>
+
   <!-- Header Premium -->
   <header class="site-header">
     <div class="container header-inner">
@@ -50,7 +57,7 @@
   <!-- Hero Section con Video/Imagen de fondo -->
   <section class="hero hero-slider">
     <div class="hero-background">
-      <img src="banner1.jpg" alt="Fragancias Premium" class="hero-bg" id="hero-img">
+      <img src="assets/banners/banner1.jpg" alt="Fragancias Premium" class="hero-bg" id="hero-img">
       <div class="hero-bg-filter"></div>
       <button class="hero-arrow hero-arrow-left" id="hero-prev" aria-label="Anterior">
         <i class="fas fa-chevron-left"></i>
