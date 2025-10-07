@@ -68,20 +68,17 @@
       <div class="catalogo-toolbar">
         <div class="catalogo-filters">
           <div class="filter-group">
-            <select class="filter-select">
-              <option>Todas las Categorías</option>
-              <option>Fragancias Orientales</option>
-              <option>Perfumes Florales</option>
-              <option>Esencias Amaderadas</option>
+            <select class="filter-select" data-filter="categoria">
+              <option value="todas">Todas las Categorías</option>
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
             </select>
           </div>
           <div class="filter-group">
-            <select class="filter-select">
-              <option>Ordenar por: Destacados</option>
-              <option>Precio: Menor a Mayor</option>
-              <option>Precio: Mayor a Menor</option>
-              <option>Más Nuevos</option>
-              <option>Más Populares</option>
+            <select class="filter-select" data-filter="orden">
+              <option value="destacados">Ordenar por: Destacados</option>
+              <option value="precio-asc">Precio: Menor a Mayor</option>
+              <option value="precio-desc">Precio: Mayor a Menor</option>
             </select>
           </div>
           <div class="search-box">
@@ -102,7 +99,7 @@
     </section>
 
     <section class="products-grid-modern">
-      <article class="product-card-modern">
+      <article class="product-card-modern" data-genero="femenino">
         <div class="product-badge-modern badge-popular">Más Vendido</div>
         <div class="product-image-modern">
           <img src="assets/img/yara.jpg" alt="Lattafa Yara" loading="lazy">
@@ -122,7 +119,7 @@
           
           <div class="product-price-modern">
             <div>
-              <span class="price-main">$25.900</span>
+              <span class="price-main">$55.000</span>
             </div>
             <div class="rating">
               <i class="fas fa-star star"></i>
@@ -145,7 +142,7 @@
           </div>
         </div>
       </article>
-      <article class="product-card-modern">
+      <article class="product-card-modern" data-genero="masculino">
         <div class="product-badge-modern badge-new">Nuevo</div>
         <div class="product-image-modern">
           <img src="assets/img/qaed.jpg" alt="Lattafa Qaed al fursan" loading="lazy">
@@ -164,7 +161,7 @@
           <p class="product-description-modern">Aromas intensos y sofisticados con notas amaderadas y especiadas.</p>
           <div class="product-price-modern">
             <div>
-              <span class="price-main">$28.900</span>
+              <span class="price-main">$45.000</span>
             </div>
             <div class="rating">
               <i class="fas fa-star star"></i>
@@ -187,7 +184,7 @@
         </div>
       </article>
 
-      <article class="product-card-modern">
+      <article class="product-card-modern" data-genero="femenino">
         <div class="product-badge-modern badge-new">Nuevo</div>
         <div class="product-image-modern">
           <img src="assets/img/candy.jpg" alt="Lattafa Yara Candy" loading="lazy">
@@ -206,7 +203,7 @@
           <p class="product-description-modern">Notas dulces y vibrantes, ideal para quienes buscan un aroma divertido y juvenil.</p>
           <div class="product-price-modern">
             <div>
-              <span class="price-main">$27.500</span>
+              <span class="price-main">$50.000</span>
             </div>
             <div class="rating">
               <i class="fas fa-star star"></i>
@@ -229,7 +226,7 @@
         </div>
       </article>
 
-      <article class="product-card-modern">
+      <article class="product-card-modern" data-genero="femenino">
         <div class="product-badge-modern badge-new">Nuevo</div>
         <div class="product-image-modern">
           <img src="assets/img/tous.jpg" alt="Lattafa Yara Tous" loading="lazy">
@@ -248,7 +245,7 @@
           <p class="product-description-modern">Fragancia floral elegante y fresca, perfecta para cualquier ocasión.</p>
           <div class="product-price-modern">
             <div>
-              <span class="price-main">$27.900</span>
+              <span class="price-main">$50.000</span>
             </div>
             <div class="rating">
               <i class="fas fa-star star"></i>
@@ -271,7 +268,7 @@
         </div>
       </article>
 
-      <article class="product-card-modern">
+      <article class="product-card-modern" data-genero="masculino">
         <div class="product-badge-modern badge-new">Nuevo</div>
         <div class="product-image-modern">
           <img src="assets/img/khamrah.jpg" alt="Lattafa Khamrah" loading="lazy">
@@ -291,7 +288,7 @@
           
           <div class="product-price-modern">
             <div>
-              <span class="price-main">$32.500</span>
+              <span class="price-main">$55.000</span>
             </div>
             <div class="rating">
               <i class="fas fa-star star"></i>
@@ -339,26 +336,6 @@
             <a href="https://www.instagram.com/essenceshop.arg/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/5493764903595" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
           </div>
-        </div>
-
-        <div class="footer-section">
-          <h4>Colecciones</h4>
-          <ul>
-            <li><a href="#">Fragancias Orientales</a></li>
-            <li><a href="#">Perfumes Florales</a></li>
-            <li><a href="#">Esencias Amaderadas</a></li>
-            <li><a href="#">Ediciones Limitadas</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Ayuda</h4>
-          <ul>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Envíos y Entregas</a></li>
-            <li><a href="#">Devoluciones</a></li>
-            <li><a href="#">Preguntas Frecuentes</a></li>
-          </ul>
         </div>
 
         <div class="footer-section">

@@ -232,4 +232,93 @@ document.addEventListener('DOMContentLoaded', () => {
       showHeroImage(heroIndex);
     });
   }
+
+  // --- Buscador global (para todas las páginas con .search-input) ---
+  const searchInput = document.querySelector('.search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      const productCards = document.querySelectorAll('.product-card-modern, .product-card');
+      const tableRows = document.querySelectorAll('.tabla-productos tbody tr');
+      if (productCards.length) {
+        productCards.forEach(card => {
+          const title = card.querySelector('.product-title-modern, .product-title');
+          const desc = card.querySelector('.product-description-modern, .product-description');
+          const text = (title?.textContent + ' ' + (desc?.textContent || '')).toLowerCase();
+          card.style.display = text.includes(query) ? '' : 'none';
+        });
+      }
+      if (tableRows.length) {
+        tableRows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(query) ? '' : 'none';
+        });
+      }
+    });
+  }
+
+  // --- Filtros y orden en listado_box.html ---
+  const productsGrid = document.querySelector('.products-grid-modern');
+  if (productsGrid) {
+    // Almacena la lista original de nodos de productos al cargar la página
+    const originalCards = Array.from(productsGrid.querySelectorAll('.product-card-modern'));
+    function getProductData(card) {
+      const priceText = card.querySelector('.price-main')?.textContent || '';
+      const precio = parseFloat(priceText.replace(/[^\d,\.]/g, '').replace('.', '').replace(',', '.')) || 0;
+      return {
+        el: card,
+        categoria: (card.querySelector('.product-category')?.textContent || '').toLowerCase(),
+        genero: card.getAttribute('data-genero') || '',
+        precio,
+        titulo: (card.querySelector('.product-title-modern')?.textContent || '').toLowerCase(),
+        descripcion: (card.querySelector('.product-description-modern')?.textContent || '').toLowerCase()
+      };
+    }
+
+    // Siempre filtra sobre la lista original, no sobre el DOM actual
+    function getAllProductData() {
+      return originalCards.map(getProductData);
+    }
+
+    const categoriaSelect = document.querySelector('.filter-select[data-filter="categoria"]');
+    const ordenSelect = document.querySelector('.filter-select[data-filter="orden"]');
+    const searchInputBox = document.querySelector('.search-input');
+
+    // --- Lee la categoría de la URL si existe ---
+    const params = new URLSearchParams(window.location.search);
+    const categoriaUrl = params.get('categoria');
+    if (categoriaUrl && categoriaSelect) {
+      categoriaSelect.value = categoriaUrl;
+    }
+
+    function filtrarYOrdenar() {
+      const productCards = getAllProductData();
+
+      let categoria = categoriaSelect ? categoriaSelect.value : 'todas';
+      let orden = ordenSelect ? ordenSelect.value : 'destacados';
+      let query = searchInputBox ? searchInputBox.value.trim().toLowerCase() : '';
+
+      let filtrados = productCards.filter(p => {
+        let matchCategoria = categoria === 'todas' || p.genero === categoria;
+        let matchBusqueda = !query || p.titulo.includes(query) || p.descripcion.includes(query);
+        return matchCategoria && matchBusqueda;
+      });
+
+      if (orden === 'precio-asc') {
+        filtrados.sort((a, b) => a.precio - b.precio);
+      } else if (orden === 'precio-desc') {
+        filtrados.sort((a, b) => b.precio - a.precio);
+      }
+
+      productsGrid.innerHTML = '';
+      filtrados.forEach(p => productsGrid.appendChild(p.el));
+    }
+
+    if (categoriaSelect) categoriaSelect.addEventListener('change', filtrarYOrdenar);
+    if (ordenSelect) ordenSelect.addEventListener('change', filtrarYOrdenar);
+    if (searchInputBox) searchInputBox.addEventListener('input', filtrarYOrdenar);
+
+    // Ejecutar al cargar para aplicar el filtro inicial (incluye filtro por URL)
+    filtrarYOrdenar();
+  }
 });
