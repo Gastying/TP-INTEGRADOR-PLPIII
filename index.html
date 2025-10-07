@@ -48,10 +48,16 @@
   </header>
 
   <!-- Hero Section con Video/Imagen de fondo -->
-  <section class="hero">
+  <section class="hero hero-slider">
     <div class="hero-background">
-      <img src="banner.jpg" alt="Fragancias Premium" class="hero-bg">
+      <img src="banner1.jpg" alt="Fragancias Premium" class="hero-bg" id="hero-img">
       <div class="hero-bg-filter"></div>
+      <button class="hero-arrow hero-arrow-left" id="hero-prev" aria-label="Anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="hero-arrow hero-arrow-right" id="hero-next" aria-label="Siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
       <div class="hero-content">
         <a href="#featured" class="btn-hero-scroll">Ver productos destacados <i class="fas fa-arrow-down"></i></a>
       </div>
@@ -63,11 +69,11 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number">500+</div>
+          <div class="stat-number">+50</div>
           <div class="stat-label">Clientes Satisfechos</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">50+</div>
+          <div class="stat-number">+50</div>
           <div class="stat-label">Fragancias Únicas</div>
         </div>
         <div class="stat-item">
@@ -227,29 +233,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Animaciones al scroll (solo visual)
-    document.addEventListener('DOMContentLoaded', function() {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, observerOptions);
-      document.querySelectorAll('.product-card, .feature-card, .stat-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-      });
-    });
-  </script>
 </body>
 </html>
