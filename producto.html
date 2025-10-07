@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda — Detalle de producto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Essence Shop" class="logo-img">
+        <h1>Essence Shop</h1>
+      </div>
+      <nav class="nav">
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="listado_box.html"><i class="fas fa-gem"></i> Catálogo</a>
+        <a href="listado_tabla.html"><i class="fas fa-list"></i> Listado</a>
+        <a href="comprar.html"><i class="fas fa-shopping-bag"></i> Checkout</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="icon-btn cart-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container producto-detalle">
+    <div class="producto-flex">
+      <div class="producto-img">
+        <img id="producto-img" src="assets/img/yara.jpg" alt="Lattafa Yara" class="producto-img-main">
+      </div>
+      <div class="producto-info">
+        <h1 class="producto-titulo" id="producto-titulo">Lattafa Yara</h1>
+        <div class="producto-precio" id="producto-precio">$ 00.000</div>
+        <div class="producto-desc">
+          <h3>Descripción</h3>
+          <p id="producto-desc">Fragancia envolvente con notas dulces y cálidas. Ideal para uso diario.</p>
+        </div>
+        <div class="producto-detalles">
+          <h4>Notas principales</h4>
+          <ul id="producto-notas">
+            <li>Salida: Mandarina, Heliotropo</li>
+            <li>Corazón: Orquídea, Frambuesa</li>
+            <li>Fondo: Sándalo, Vainilla, Almizcle</li>
+          </ul>
+          <h4>Presentación</h4>
+          <p id="producto-presentacion">100ml Eau de Parfum</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <script>
+    // Datos de productos
+    const productos = {
+      1: {
+        nombre: "Lattafa Khamrah",
+        imagen: "assets/img/khamrah.jpg",
+        precio: "$ 32.500",
+        desc: "Esencias orientales intensas con toques especiados que perduran durante horas.",
+        notas: [
+          "Salida: Canela, Nuez Moscada, Bergamota",
+          "Corazón: Dátiles, Praliné, Nardos",
+          "Fondo: Vainilla, Tonka, Ámbar, Madera"
+        ],
+        presentacion: "100ml Eau de Parfum"
+      },
+      2: {
+        nombre: "Lattafa Yara",
+        imagen: "assets/img/yara.jpg",
+        precio: "$ 25.900",
+        desc: "Fragancia envolvente con notas dulces y cálidas. Ideal para uso diario.",
+        notas: [
+          "Salida: Mandarina, Heliotropo",
+          "Corazón: Orquídea, Frambuesa",
+          "Fondo: Sándalo, Vainilla, Almizcle"
+        ],
+        presentacion: "100ml Eau de Parfum"
+      },
+      3: {
+        nombre: "Lattafa Qaed al fursan",
+        imagen: "assets/img/qaed.jpg",
+        precio: "$ 28.900",
+        desc: "Aromas intensos y sofisticados con notas amaderadas y especiadas.",
+        notas: [
+          "Salida: Piña, Azafrán, Manzana",
+          "Corazón: Abedul, Jazmín, Pachulí",
+          "Fondo: Madera de Oud, Ámbar, Almizcle"
+        ],
+        presentacion: "90ml Eau de Parfum"
+      },
+      4: {
+        nombre: "Lattafa Yara Candy",
+        imagen: "assets/img/candy.jpg",
+        precio: "$ 27.500",
+        desc: "Notas dulces y vibrantes, ideal para quienes buscan un aroma divertido y juvenil.",
+        notas: [
+          "Salida: Frutas Rojas, Caramelo",
+          "Corazón: Rosa, Jazmín",
+          "Fondo: Vainilla, Almizcle"
+        ],
+        presentacion: "100ml Eau de Parfum"
+      },
+      5: {
+        nombre: "Lattafa Yara Tous",
+        imagen: "assets/img/tous.jpg",
+        precio: "$ 27.900",
+        desc: "Fragancia floral elegante y fresca, perfecta para cualquier ocasión.",
+        notas: [
+          "Salida: Flor de Azahar, Mandarina",
+          "Corazón: Peonía, Rosa",
+          "Fondo: Almizcle, Sándalo, Vainilla"
+        ],
+        presentacion: "100ml Eau de Parfum"
+      }
+    };
+    // Obtener id de la URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (productos[id]) {
+      document.getElementById('producto-img').src = productos[id].imagen;
+      document.getElementById('producto-img').alt = productos[id].nombre;
+      document.getElementById('producto-titulo').textContent = productos[id].nombre;
+      document.getElementById('producto-precio').textContent = productos[id].precio;
+      document.getElementById('producto-desc').textContent = productos[id].desc;
+      document.getElementById('producto-presentacion').textContent = productos[id].presentacion;
+      // Notas
+      const ul = document.getElementById('producto-notas');
+      ul.innerHTML = '';
+      productos[id].notas.forEach(nota => {
+        const li = document.createElement('li');
+        li.textContent = nota;
+        ul.appendChild(li);
+      });
+    }
+  </script>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/img/logo.png" alt="Essence Shop" class="logo-img">
+            <h3>Essence</h3>
+          </div>
+          <p>Tu destino premium para fragancias exclusivas importadas de todo el mundo.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/essenceshop.arg/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5493764903595" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Colecciones</h4>
+          <ul>
+            <li><a href="#">Fragancias Orientales</a></li>
+            <li><a href="#">Perfumes Florales</a></li>
+            <li><a href="#">Esencias Amaderadas</a></li>
+            <li><a href="#">Ediciones Limitadas</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Envíos y Entregas</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> hola@essence.com</p>
+            <p><i class="fas fa-phone"></i> +5493764903595</p>
+            <p><i class="fas fa-map-marker-alt"></i> Misiones, Argentina</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Essence Shop. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

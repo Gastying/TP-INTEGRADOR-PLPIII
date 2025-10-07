@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Essence Shop — Perfumes de Lujo</title>
+
+  <!-- Preconnects para performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Fuentes premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Header Premium -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Essence Shop" class="logo-img">
+        <h1>Essence Shop</h1>
+      </div>
+      
+      <nav class="nav">
+        <a href="index.html" aria-current="page"><i class="fas fa-home"></i> Inicio</a>
+        <a href="listado_box.html"><i class="fas fa-gem"></i> Catálogo</a>
+        <a href="listado_tabla.html"><i class="fas fa-list"></i> Listado</a>
+        <a href="comprar.html"><i class="fas fa-shopping-bag"></i> Checkout</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn search-btn">
+          <!-- Botón de búsqueda eliminado por no estar implementado -->
+        </button>
+        <button class="icon-btn cart-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section con Video/Imagen de fondo -->
+  <section class="hero">
+    <div class="hero-background">
+      <img src="banner.jpg" alt="Fragancias Premium" class="hero-bg">
+      <div class="hero-bg-filter"></div>
+      <div class="hero-content">
+        <a href="#featured" class="btn-hero-scroll">Ver productos destacados <i class="fas fa-arrow-down"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Clientes Satisfechos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Fragancias Únicas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Atención Personalizada</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Productos Originales</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="featured" class="featured">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Selección Exclusiva</span>
+        <h2 class="section-title">Nuestros <span class="highlight">Destacados</span></h2>
+      </div>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-badge">Más Vendido</div>
+          <div class="product-image">
+            <img src="assets/img/yara.jpg" alt="Lattafa Yara" loading="lazy">
+            <div class="product-overlay">
+              <button class="quick-view" data-product="2">
+                <i class="fas fa-eye"></i>
+                Vista Rápida
+              </button>
+            </div>
+          </div>
+          <div class="product-content">
+            <h3 class="product-title">Lattafa Yara</h3>
+            <p class="product-description">Fragancia floral oriental con notas dulces y cálidas</p>
+            <div class="product-price">$25.900</div>
+            <div class="product-actions">
+              <button class="btn-cart" data-add-to-cart data-id="2">
+                <i class="fas fa-shopping-bag"></i>
+                Agregar
+              </button>
+              <a href="producto.html?id=2" class="btn-details">
+                Ver Detalle
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-badge trending">Trending</div>
+          <div class="product-image">
+            <img src="assets/img/khamrah.jpg" alt="Lattafa Khamrah" loading="lazy">
+            <div class="product-overlay">
+              <button class="quick-view" data-product="1">
+                <i class="fas fa-eye"></i>
+                Vista Rápida
+              </button>
+            </div>
+          </div>
+          <div class="product-content">
+            <h3 class="product-title">Lattafa Khamrah</h3>
+            <p class="product-description">Esencias orientales intensas con toques especiados</p>
+            <div class="product-price">$32.500</div>
+            <div class="product-actions">
+              <button class="btn-cart" data-add-to-cart data-id="1">
+                <i class="fas fa-shopping-bag"></i>
+                Agregar
+              </button>
+              <a href="producto.html?id=1" class="btn-details">
+                Ver Detalle
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-badge new">Nuevo</div>
+          <div class="product-image">
+            <img src="assets/img/qaed.jpg" alt="Lattafa Qaed al fursan" loading="lazy">
+            <div class="product-overlay">
+              <button class="quick-view" data-product="3">
+                <i class="fas fa-eye"></i>
+                Vista Rápida
+              </button>
+            </div>
+          </div>
+          <div class="product-content">
+            <h3 class="product-title">Lattafa Qaed al fursan</h3>
+            <p class="product-description">Aromas intensos y sofisticados con notas amaderadas y especiadas</p>
+            <div class="product-price">$28.900</div>
+            <div class="product-actions">
+              <button class="btn-cart" data-add-to-cart data-id="3">
+                <i class="fas fa-shopping-bag"></i>
+                Agregar
+              </button>
+              <a href="producto.html?id=3" class="btn-details">
+                Ver Detalle
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Premium -->
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/img/logo.png" alt="Essence Shop" class="logo-img">
+            <h3>Essence</h3>
+          </div>
+          <p>Tu destino premium para fragancias exclusivas importadas de todo el mundo.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/essenceshop.arg/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5493764903595" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Colecciones</h4>
+          <ul>
+            <li><a href="#">Fragancias Orientales</a></li>
+            <li><a href="#">Perfumes Florales</a></li>
+            <li><a href="#">Esencias Amaderadas</a></li>
+            <li><a href="#">Ediciones Limitadas</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Envíos y Entregas</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> hola@essence.com</p>
+            <p><i class="fas fa-phone"></i> +5493764903595</p>
+            <p><i class="fas fa-map-marker-alt"></i> Misiones, Argentina</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Essence Shop. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Animaciones al scroll (solo visual)
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      document.querySelectorAll('.product-card, .feature-card, .stat-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

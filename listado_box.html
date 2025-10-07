@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo - Essence Shop</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Essence Shop" class="logo-img">
+        <h1>Essence Shop</h1>
+      </div>
+      <nav class="nav">
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="listado_box.html" aria-current="page"><i class="fas fa-gem"></i> Catálogo</a>
+        <a href="listado_tabla.html"><i class="fas fa-list"></i> Listado</a>
+        <a href="comprar.html"><i class="fas fa-shopping-bag"></i> Checkout</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="icon-btn cart-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="catalogo-header">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Nuestra Colección</span>
+        <h2 class="section-title">Catálogo de <span class="highlight">Perfumes</span></h2>
+        <p class="form-subtitle">Descubre nuestra exclusiva selección de fragancias premium</p>
+      </div>
+
+      <div class="catalogo-toolbar">
+        <div class="catalogo-filters">
+          <div class="filter-group">
+            <select class="filter-select">
+              <option>Todas las Categorías</option>
+              <option>Fragancias Orientales</option>
+              <option>Perfumes Florales</option>
+              <option>Esencias Amaderadas</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select class="filter-select">
+              <option>Ordenar por: Destacados</option>
+              <option>Precio: Menor a Mayor</option>
+              <option>Precio: Mayor a Menor</option>
+              <option>Más Nuevos</option>
+              <option>Más Populares</option>
+            </select>
+          </div>
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Buscar perfumes...">
+          </div>
+        </div>
+        
+        <div class="view-options">
+          <button class="view-btn active" data-view="grid">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" data-view="list">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-grid-modern">
+      <article class="product-card-modern">
+        <div class="product-badge-modern badge-popular">Más Vendido</div>
+        <div class="product-image-modern">
+          <img src="assets/img/yara.jpg" alt="Lattafa Yara" loading="lazy">
+          <div class="product-actions-modern">
+            <button class="action-btn" title="Agregar a favoritos">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="action-btn" title="Vista rápida">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-content-modern">
+          <div class="product-category">Fragancia Oriental</div>
+          <h3 class="product-title-modern">Lattafa Yara</h3>
+          <p class="product-description-modern">Fragancia envolvente con notas dulces y cálidas. Ideal para uso diario y ocasiones especiales.</p>
+          
+          <div class="product-price-modern">
+            <div>
+              <span class="price-main">$25.900</span>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star-half-alt star"></i>
+              <span style="margin-left: 0.5rem; color: var(--gray); font-size: 0.8rem;">(128)</span>
+            </div>
+          </div>
+          
+          <div class="product-footer-modern">
+            <button class="btn-add-cart" data-add-to-cart data-id="2">
+              <i class="fas fa-shopping-bag"></i>
+              Agregar
+            </button>
+              <a href="producto.html?id=2" class="btn-quick-view">Ver detalles
+              <i class="far fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card-modern">
+        <div class="product-badge-modern badge-new">Nuevo</div>
+        <div class="product-image-modern">
+          <img src="assets/img/qaed.jpg" alt="Lattafa Qaed al fursan" loading="lazy">
+          <div class="product-actions-modern">
+            <button class="action-btn" title="Agregar a favoritos">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="action-btn" title="Vista rápida">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-content-modern">
+          <div class="product-category">Fragancia Amaderada</div>
+          <h3 class="product-title-modern">Lattafa Qaed al fursan</h3>
+          <p class="product-description-modern">Aromas intensos y sofisticados con notas amaderadas y especiadas.</p>
+          <div class="product-price-modern">
+            <div>
+              <span class="price-main">$28.900</span>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star-half-alt star"></i>
+              <span style="margin-left: 0.5rem; color: var(--gray); font-size: 0.8rem;">(110)</span>
+            </div>
+          </div>
+          <div class="product-footer-modern">
+            <button class="btn-add-cart" data-add-to-cart data-id="3">
+              <i class="fas fa-shopping-bag"></i>
+              Agregar
+            </button>
+              <a href="producto.html?id=3" class="btn-quick-view">Ver detalles
+              <i class="far fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card-modern">
+        <div class="product-badge-modern badge-new">Nuevo</div>
+        <div class="product-image-modern">
+          <img src="assets/img/candy.jpg" alt="Lattafa Yara Candy" loading="lazy">
+          <div class="product-actions-modern">
+            <button class="action-btn" title="Agregar a favoritos">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="action-btn" title="Vista rápida">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-content-modern">
+          <div class="product-category">Fragancia Dulce</div>
+          <h3 class="product-title-modern">Lattafa Yara Candy</h3>
+          <p class="product-description-modern">Notas dulces y vibrantes, ideal para quienes buscan un aroma divertido y juvenil.</p>
+          <div class="product-price-modern">
+            <div>
+              <span class="price-main">$27.500</span>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star-half-alt star"></i>
+              <span style="margin-left: 0.5rem; color: var(--gray); font-size: 0.8rem;">(98)</span>
+            </div>
+          </div>
+          <div class="product-footer-modern">
+            <button class="btn-add-cart" data-add-to-cart data-id="4">
+              <i class="fas fa-shopping-bag"></i>
+              Agregar
+            </button>
+              <a href="producto.html?id=4" class="btn-quick-view">Ver detalles
+              <i class="far fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card-modern">
+        <div class="product-badge-modern badge-new">Nuevo</div>
+        <div class="product-image-modern">
+          <img src="assets/img/tous.jpg" alt="Lattafa Yara Tous" loading="lazy">
+          <div class="product-actions-modern">
+            <button class="action-btn" title="Agregar a favoritos">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="action-btn" title="Vista rápida">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-content-modern">
+          <div class="product-category">Fragancia Floral</div>
+          <h3 class="product-title-modern">Lattafa Yara Tous</h3>
+          <p class="product-description-modern">Fragancia floral elegante y fresca, perfecta para cualquier ocasión.</p>
+          <div class="product-price-modern">
+            <div>
+              <span class="price-main">$27.900</span>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star-half-alt star"></i>
+              <span style="margin-left: 0.5rem; color: var(--gray); font-size: 0.8rem;">(105)</span>
+            </div>
+          </div>
+          <div class="product-footer-modern">
+            <button class="btn-add-cart" data-add-to-cart data-id="5">
+              <i class="fas fa-shopping-bag"></i>
+              Agregar
+            </button>
+              <a href="producto.html?id=5" class="btn-quick-view">Ver detalles
+              <i class="far fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card-modern">
+        <div class="product-badge-modern badge-new">Nuevo</div>
+        <div class="product-image-modern">
+          <img src="assets/img/khamrah.jpg" alt="Lattafa Khamrah" loading="lazy">
+          <div class="product-actions-modern">
+            <button class="action-btn" title="Agregar a favoritos">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="action-btn" title="Vista rápida">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-content-modern">
+          <div class="product-category">Esencias Árabes</div>
+          <h3 class="product-title-modern">Lattafa Khamrah</h3>
+          <p class="product-description-modern">Esencias orientales intensas con toques especiados que perduran durante horas.</p>
+          
+          <div class="product-price-modern">
+            <div>
+              <span class="price-main">$32.500</span>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <span style="margin-left: 0.5rem; color: var(--gray); font-size: 0.8rem;">(95)</span>
+            </div>
+          </div>
+          
+          <div class="product-footer-modern">
+            <button class="btn-add-cart" data-add-to-cart data-id="1">
+              <i class="fas fa-shopping-bag"></i>
+              Agregar
+            </button>
+            <a href="producto.html?id=1" class="btn-quick-view">
+              <i class="far fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/img/logo.png" alt="Essence Shop" class="logo-img">
+            <h3>Essence</h3>
+          </div>
+          <p>Tu destino premium para fragancias exclusivas importadas de todo el mundo.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/essenceshop.arg/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5493764903595" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Colecciones</h4>
+          <ul>
+            <li><a href="#">Fragancias Orientales</a></li>
+            <li><a href="#">Perfumes Florales</a></li>
+            <li><a href="#">Esencias Amaderadas</a></li>
+            <li><a href="#">Ediciones Limitadas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Envíos y Entregas</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> hola@essence.com</p>
+            <p><i class="fas fa-phone"></i> +5493764903595</p>
+            <p><i class="fas fa-map-marker-alt"></i> Misiones, Argentina</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Essence Shop. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Funcionalidades del catálogo
+    document.addEventListener('DOMContentLoaded', function() {
+      // Cambiar vista
+      const viewBtns = document.querySelectorAll('.view-btn');
+      const productsGrid = document.querySelector('.products-grid-modern');
+      
+      viewBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          viewBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          if (this.dataset.view === 'list') {
+            productsGrid.classList.add('list-view');
+          } else {
+            productsGrid.classList.remove('list-view');
+          }
+        });
+      });
+
+      // Filtros y búsqueda
+      const searchInput = document.querySelector('.search-input');
+      searchInput.addEventListener('input', function() {
+        // Aquí iría la lógica de búsqueda
+        console.log('Buscando:', this.value);
+      });
+
+      // Agregar al carrito
+      const addToCartBtns = document.querySelectorAll('[data-add-to-cart]');
+      addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const productId = this.dataset.id;
+          // Lógica para agregar al carrito
+          alert(`Producto ${productId} agregado al carrito`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
