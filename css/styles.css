@@ -3,7 +3,7 @@
   --color-bg: #faf8f6;
   --color-primary: #1a1a1a;
   --color-secondary: #fff;
-  --color-accent: #c9a86a; /* dorado elegante */
+  --color-accent: #c9a86a; 
   --color-accent-dark: #b08d57;
   --color-muted: #ece7df;
   --color-shadow: rgba(0,0,0,0.08);
@@ -139,7 +139,7 @@ img {
   box-shadow: 0 1px 4px var(--color-shadow);
 }
 
-/* Detalle de producto: imagen a la izquierda, info a la derecha */
+/* Detalle de producto imagen a la izquierda, info a la derecha */
 .producto-flex {
   display: flex;
   gap: 2.5rem;
@@ -228,6 +228,7 @@ img {
   top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.6); /* negro más intenso */
   z-index: 2;
+  pointer-events: none; /* <-- Asegura que no bloquee los botones */
 }
 .hero-content {
   position: absolute;
@@ -257,7 +258,7 @@ img {
   color: #fff;
   box-shadow: 0 6px 24px rgba(139,115,85,0.18);
 }
-/* Hero premium sobre el listado tabla */
+/* Hero sobre el listado tabla */
 .hero-listado {
   width: 100%;
   min-height: 170px;
@@ -293,7 +294,7 @@ img {
   font-weight: 700;
   margin: 0;
 }
-/* Bloque decorativo premium debajo del header para listado_tabla */
+/* Bloque decorativo debajo del header para listado_tabla */
 .tabla-header-premium {
   width: 100%;
   background: linear-gradient(90deg, #f8f6f3 60%, #f3ede3 100%);
@@ -336,22 +337,8 @@ img {
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(139,115,85,0.10);
 }
-/* DESHABILITAR COMPRAS */
-.btn-cart,
-.cart-btn,
-.btn-add-cart,
-.btn-form,
-a[href*="comprar"],
-.cart-sidebar,
-.header-actions .cart-count {
-  display: none !important;
-}
-.product-actions .btn-details {
-  flex: 1;
-}
-/* ===== COMPONENTES UX/UI MODERNOS ===== */
+/* COMPONENTES UX/UI MODERNOS */
 :root {
-  /* ...variables... */
 }
 .site-header {
   background: linear-gradient(90deg, #fff 70%, #f8f6f3 100%);
@@ -2235,46 +2222,6 @@ main.container {
   z-index: 1;
   transition: opacity 0.5s;
 }
-.hero-bg-filter {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6); /* negro más intenso */
-  z-index: 2;
-}
-.hero-content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-.btn-hero-scroll {
-  background: var(--color-accent);
-  color: var(--color-secondary);
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  padding: 0.9rem 2.2rem;
-  border: none;
-  border-radius: 2rem;
-  box-shadow: 0 4px 18px var(--color-shadow);
-  cursor: pointer;
-  transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
-  letter-spacing: 0.07em;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-hero-scroll:hover, .btn-hero-scroll:focus {
-  background: var(--color-accent-dark);
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 8px 24px var(--color-shadow-strong);
-}
-
 .hero-arrow {
   position: absolute;
   top: 50%;
@@ -2288,7 +2235,8 @@ main.container {
   font-size: 1.3rem;
   box-shadow: 0 2px 8px var(--color-shadow);
   cursor: pointer;
-  z-index: 3;
+  z-index: 10 !important;
+  pointer-events: auto;
   transition: background 0.2s, color 0.2s, transform 0.15s;
 }
 
@@ -2299,6 +2247,14 @@ main.container {
   background: var(--color-accent);
   color: var(--color-secondary);
   transform: scale(1.09);
+}
+
+.hero-bg-filter {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* negro más intenso */
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Stats Section */
@@ -2708,12 +2664,12 @@ main.container {
   box-shadow: 0 4px 16px var(--color-shadow-strong);
 }
 
-/* Preloader solo logo mucho más grande y solo para carga inicial */
+/* Preloader solo logo y solo para carga inicial */
 #preloader {
   position: fixed;
   z-index: 99999;
   inset: 0;
-  background: rgba(17, 17, 17, 0.6); /* 60% opacidad */
+  background: rgba(17, 17, 17, 0.6); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2754,4 +2710,13 @@ body.preloader-hide #preloader {
 .fade-hero-in {
   opacity: 1;
   transition: opacity 0.4s;
+}
+
+/* Toasts */
+#toast-region {
+}
+.toast {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.5em;
 }

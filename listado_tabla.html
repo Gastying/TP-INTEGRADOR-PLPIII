@@ -30,113 +30,104 @@
         <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
         <a href="listado_box.html"><i class="fas fa-gem"></i> Catálogo</a>
         <a href="listado_tabla.html" aria-current="page"><i class="fas fa-list"></i> Listado</a>
-        <a href="comprar.html"><i class="fas fa-shopping-bag"></i> Checkout</a>
       </nav>
-      <div class="header-actions">
-        <button class="icon-btn search-btn">
-          <i class="fas fa-search"></i>
-          <!-- Botón deshabilitado visualmente -->
-        </button>
-        <button class="icon-btn cart-btn">
-          <i class="fas fa-shopping-bag"></i>
-          <span class="cart-count">0</span>
-        </button>
-      </div>
     </div>
   </header>
 
-    <main class="container">
-      <section class="catalogo-header">
-        <div class="section-header text-center">
-          <span class="section-subtitle">Nuestra Colección</span>
-          <h2 class="section-title">Listado de <span class="highlight">productos</span></h2>
-          <p class="form-subtitle">Visualiza todos los productos disponibles en formato tabla</p>
-        </div>
-      </section>
+  <main class="container">
+    <section class="catalogo-header">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Nuestra Colección</span>
+        <h2 class="section-title">Listado de <span class="highlight">productos</span></h2>
+        <p class="form-subtitle">Visualiza todos los productos disponibles en formato tabla</p>
+      </div>
+    </section>
 
-    <table class="tabla-productos">
-      <thead>
-        <tr>
-          <th style="width: 60px;">Imagen</th>
-          <th>Producto</th>
-          <th>Precio</th>
-          <th>Stock</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align:center; vertical-align:middle;">
-            <img src="assets/img/yara.jpg" alt="Lattafa Yara" loading="lazy" class="thumb-mini">
-          </td>
-          <td>
-            <strong>Lattafa Yara</strong><br>
-            <span class="sku">SKU: YR-001</span>
-          </td>
-          <td class="precio">$ 55.000</td>
-          <td>Disponible</td>
-          <td>
-            <a href="producto.html?id=2" class="btn">Ver detalle</a>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align:center; vertical-align:middle;">
-            <img src="assets/img/khamrah.jpg" alt="Lattafa Khamrah" loading="lazy" class="thumb-mini">
-          </td>
-          <td>
-            <strong>Lattafa Khamrah</strong><br>
-            <span class="sku">SKU: KH-001</span>
-          </td>
-          <td class="precio">$ 55.000</td>
-          <td>Disponible</td>
-          <td>
-            <a href="producto.html?id=1" class="btn">Ver detalle</a>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align:center; vertical-align:middle;">
-            <img src="assets/img/qaed.jpg" alt="Lattafa Qaed al fursan" loading="lazy" class="thumb-mini">
-          </td>
-          <td>
-            <strong>Lattafa Qaed al fursan</strong><br>
-            <span class="sku">SKU: QA-001</span>
-          </td>
-          <td class="precio">$ 45.000</td>
-          <td>Disponible</td>
-          <td>
-            <a href="producto.html?id=3" class="btn">Ver detalle</a>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align:center; vertical-align:middle;">
-            <img src="assets/img/candy.jpg" alt="Lattafa Yara Candy" loading="lazy" class="thumb-mini">
-          </td>
-          <td>
-            <strong>Lattafa Yara Candy</strong><br>
-            <span class="sku">SKU: YC-001</span>
-          </td>
-          <td class="precio">$ 50.000</td>
-          <td>Disponible</td>
-          <td>
-            <a href="producto.html?id=4" class="btn">Ver detalle</a>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align:center; vertical-align:middle;">
-            <img src="assets/img/tous.jpg" alt="Lattafa Yara Tous" loading="lazy" class="thumb-mini">
-          </td>
-          <td>
-            <strong>Lattafa Yara Tous</strong><br>
-            <span class="sku">SKU: YT-001</span>
-          </td>
-          <td class="precio">$ 50.000</td>
-          <td>Disponible</td>
-          <td>
-            <a href="producto.html?id=5" class="btn">Ver detalle</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="tabla-container">
+      <table class="tabla-productos">
+        <thead>
+          <tr>
+            <th style="width: 60px;">Imagen</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center; vertical-align:middle;">
+              <img src="assets/img/yara.jpg" alt="Lattafa Yara" loading="lazy" class="thumb-mini">
+            </td>
+            <td>
+              <strong>Lattafa Yara</strong><br>
+              <span class="sku">SKU: YR-001</span>
+            </td>
+            <td class="precio">$ 55.000</td>
+            <td>Disponible</td>
+            <td>
+              <a href="producto.html?id=2" class="btn">Ver detalle</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:center; vertical-align:middle;">
+              <img src="assets/img/khamrah.jpg" alt="Lattafa Khamrah" loading="lazy" class="thumb-mini">
+            </td>
+            <td>
+              <strong>Lattafa Khamrah</strong><br>
+              <span class="sku">SKU: KH-001</span>
+            </td>
+            <td class="precio">$ 55.000</td>
+            <td>Disponible</td>
+            <td>
+              <a href="producto.html?id=1" class="btn">Ver detalle</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:center; vertical-align:middle;">
+              <img src="assets/img/qaed.jpg" alt="Lattafa Qaed al fursan" loading="lazy" class="thumb-mini">
+            </td>
+            <td>
+              <strong>Lattafa Qaed al fursan</strong><br>
+              <span class="sku">SKU: QA-001</span>
+            </td>
+            <td class="precio">$ 45.000</td>
+            <td>Disponible</td>
+            <td>
+              <a href="producto.html?id=3" class="btn">Ver detalle</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:center; vertical-align:middle;">
+              <img src="assets/img/candy.jpg" alt="Lattafa Yara Candy" loading="lazy" class="thumb-mini">
+            </td>
+            <td>
+              <strong>Lattafa Yara Candy</strong><br>
+              <span class="sku">SKU: YC-001</span>
+            </td>
+            <td class="precio">$ 50.000</td>
+            <td>Disponible</td>
+            <td>
+              <a href="producto.html?id=4" class="btn">Ver detalle</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:center; vertical-align:middle;">
+              <img src="assets/img/tous.jpg" alt="Lattafa Yara Tous" loading="lazy" class="thumb-mini">
+            </td>
+            <td>
+              <strong>Lattafa Yara Tous</strong><br>
+              <span class="sku">SKU: YT-001</span>
+            </td>
+            <td class="precio">$ 50.000</td>
+            <td>Disponible</td>
+            <td>
+              <a href="producto.html?id=5" class="btn">Ver detalle</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
 
   <footer class="site-footer">
