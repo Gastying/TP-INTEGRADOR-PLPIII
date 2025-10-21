@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Essence Shop — Perfumes de Lujo</title>
 
+    <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  
   <!-- Preconnects para performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +23,32 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/script.js" defer></script>
 </head>
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bindToast = (selector, text) => {
+      document.querySelectorAll(selector).forEach(el => {
+        el.addEventListener('click', () => {
+          Toastify({
+            text,
+            duration: 2000,
+            gravity: 'top',
+            position: 'right',
+            stopOnFocus: true
+          }).showToast();
+        });
+      });
+    };
+
+    // Botones ya presentes en tu home:
+    // .quick-view  (botones "Vista Rápida")
+    // .btn-details (links "Ver Detalle")
+    bindToast('.quick-view', 'Abriendo vista rápida…');
+    bindToast('.btn-details', 'Cargando detalle del producto…');
+  });
+</script>
+
 <body>
   <!-- Preloader animado solo logo -->
   <div id="preloader">

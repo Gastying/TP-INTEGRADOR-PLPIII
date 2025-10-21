@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo - Essence Shop</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +15,24 @@
 
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/script.js" defer></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.btn-details').forEach(btn => {
+        btn.addEventListener('click', () => {
+          Toastify({
+            text: "Cargando detalle del producto…",
+            duration: 2000,
+            gravity: "top",
+            position: "right"
+          }).showToast();
+        });
+      });
+    });
+  </script>
+
   <style>
     .products-grid-modern {
       display: grid;

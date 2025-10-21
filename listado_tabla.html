@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Essence Shop — Listado (Visión detallada)</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+
   <!-- Preconnects para performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +21,22 @@
 
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/script.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tabla-productos .btn').forEach(a => {
+      a.addEventListener('click', () => {
+        Toastify({
+          text: 'Abriendo detalle…',
+          duration: 1800,
+          gravity: 'top',
+          position: 'right'
+        }).showToast();
+      });
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
